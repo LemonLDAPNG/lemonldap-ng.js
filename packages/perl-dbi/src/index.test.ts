@@ -63,6 +63,15 @@ describe("parseDbiChain", () => {
     expect(options.password).toBe("testpass");
   });
 
+  it("should parse PostgreSQL DBI chain with sslmode", () => {
+    const options = parseDbiChain({
+      dbiChain: "dbi:Pg:dbname=llng;host=localhost;port=5432;sslmode=require",
+    });
+    expect(options.type).toBe("pg");
+    expect(options.database).toBe("llng");
+    expect(options.sslmode).toBe("require");
+  });
+
   it("should parse SQLite DBI chain", () => {
     const options = parseDbiChain({
       dbiChain: "dbi:SQLite:dbname=/tmp/test.db",

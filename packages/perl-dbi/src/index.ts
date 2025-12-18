@@ -19,6 +19,7 @@ export interface DBI_ConnectionOptions {
   sid?: string;
   user?: string;
   password?: string;
+  sslmode?: "disable" | "allow" | "prefer" | "require" | "verify-ca" | "verify-full";
 }
 
 /**
@@ -42,6 +43,7 @@ const convert = {
   port: "port",
   encoding: "encoding",
   sid: "sid",
+  sslmode: "sslmode",
 };
 
 import { Knex } from "knex";
@@ -101,6 +103,7 @@ function PerlDBI(args: PerlDBI_Args): PerlDBI_Client {
   const dbArgs: Knex.Config = {};
   dbArgs.client = type;
   dbArgs.connection = {};
+  let sslmode: string | undefined;
   RegExp.$2.split(/;/).map((s: string) => {
     const eqIndex = s.indexOf("=");
     if (eqIndex > 0) {
@@ -109,8 +112,12 @@ function PerlDBI(args: PerlDBI_Args): PerlDBI_Client {
       let k: string = convert[key as keyof typeof convert];
       if (k && k !== "type") {
         if (type === "sqlite3" && k === "database") k = "filename";
-        // @ts-ignore
-        dbArgs.connection[k] = value;
+        if (k === "sslmode") {
+          sslmode = value;
+        } else {
+          // @ts-ignore
+          dbArgs.connection[k] = value;
+        }
       } else {
         // istanbul ignore next
         throw new Error(`Unknown DB argument ${k}`);
@@ -129,6 +136,14 @@ function PerlDBI(args: PerlDBI_Args): PerlDBI_Client {
       throw new Error("database must be a path");
     }
     dbArgs.useNullAsDefault = true;
+  }
+  // Handle SSL mode for PostgreSQL and MySQL
+  if (sslmode && sslmode !== "disable") {
+    // @ts-ignore
+    dbArgs.connection.ssl =
+      sslmode === "verify-full" || sslmode === "verify-ca"
+        ? { rejectUnauthorized: true }
+        : { rejectUnauthorized: false };
   }
   // Add user and password to connection config
   if (args.dbiUser) {

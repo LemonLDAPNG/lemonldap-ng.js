@@ -1,6 +1,6 @@
 {
   "name": "@lemonldap-ng/session",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "LemonLDAP::NG session loader",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
@@ -31,8 +31,8 @@
   "optionalDependencies": {
     "@lemonldap-ng/session-file": "^0.8.0",
     "@lemonldap-ng/session-ldap": "^0.8.0",
-    "@lemonldap-ng/session-mysql": "^0.8.0",
-    "@lemonldap-ng/session-postgres": "^0.8.0",
+    "@lemonldap-ng/session-mysql": "^0.9.0",
+    "@lemonldap-ng/session-postgres": "^0.9.0",
     "@lemonldap-ng/session-redis": "^0.8.0",
     "@lemonldap-ng/session-rest": "^0.8.0"
   },
