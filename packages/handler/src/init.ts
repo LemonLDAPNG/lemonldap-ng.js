@@ -214,7 +214,7 @@ abstract class HandlerInit implements MsgActionHandler {
                   this.tsv.locationCondition[vhost].push(cond);
                   this.tsv.locationProtection[vhost].push(prot);
                   this.tsv.locationRegexp[vhost].push(
-                    new RE2(url.replace(/\(\?#.*?\)/, "")),
+                    new RE2(url.replace(/\(\?#.*?\)/g, "")),
                   );
                   this.tsv.locationCount[vhost]++;
                 }
