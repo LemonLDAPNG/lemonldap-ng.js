@@ -1,6 +1,6 @@
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
-import cleaner from "rollup-plugin-cleaner";
+import cleaner from "./rollup-cleaner.mjs";
 //import terser from "@rollup/plugin-terser";
 
 function configure(esm, external) {

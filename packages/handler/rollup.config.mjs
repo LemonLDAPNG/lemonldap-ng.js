@@ -2,7 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
-import cleaner from "rollup-plugin-cleaner";
+import cleaner from "../../rollup-cleaner.mjs";
 
 const alwaysExt = [
   "@lemonldap-ng/conf",

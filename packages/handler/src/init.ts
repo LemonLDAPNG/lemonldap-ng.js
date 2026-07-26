@@ -180,7 +180,9 @@ abstract class HandlerInit implements MsgActionHandler {
               });
             } catch (e) {
               // istanbul ignore next
-              throw new Error(`Unable to load session module: ${e}`);
+              throw new Error(`Unable to load session module: ${e}`, {
+                cause: e,
+              });
             }
 
             /**

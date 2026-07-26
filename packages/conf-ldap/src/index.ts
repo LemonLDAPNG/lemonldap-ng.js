@@ -56,7 +56,9 @@ class LDAPConf implements Conf_Accessor {
           ca: [fs.readFileSync(this.ldapCa).toString()],
         };
       } catch (error) {
-        throw new Error(`Unable to parse ${this.ldapCa}: ${error}`);
+        throw new Error(`Unable to parse ${this.ldapCa}: ${error}`, {
+          cause: error,
+        });
       }
     }
     this.client = new LDAPClient({

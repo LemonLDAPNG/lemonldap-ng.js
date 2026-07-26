@@ -70,7 +70,7 @@ class CDBI extends DBI implements Conf_Accessor {
         res[k] = k.match(hashParameters) ? JSON.parse(cfg[k]) : cfg[k];
       } catch (e) {
         // istanbul ignore next
-        throw new Error(`Error when parsing ${k} field: (${e})`);
+        throw new Error(`Error when parsing ${k} field: (${e})`, { cause: e });
       }
     });
     return res;

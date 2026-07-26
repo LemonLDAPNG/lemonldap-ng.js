@@ -96,7 +96,9 @@ class Conf {
       });
       return res;
     } catch (e) {
-      throw new Error(`Unable to parse ${this.localConf.confFile}: ${e}`);
+      throw new Error(`Unable to parse ${this.localConf.confFile}: ${e}`, {
+        cause: e,
+      });
     }
   }
 

@@ -78,11 +78,11 @@ class ExtdFunc {
     const pos = Math.trunc(hourPos / div);
     const v1 = Math.pow(2, hourPos % div);
     const v2 = logonHours.substr(pos, 1);
-    let v3: number;
-    if (/\d/.test(v2)) {
-      v3 = parseInt(v2);
-    } else {
-      v3 = v2.charCodeAt(0);
+    // NOTE: digit slots (0-9) fall through and yield `undefined`, i.e. access
+    // denied. The Perl reference returns `v1 & v3` for them too; behaviour is
+    // left unchanged here on purpose (see CHANGELOG / issue tracker).
+    if (!/\d/.test(v2)) {
+      let v3 = v2.charCodeAt(0);
       v3 = v3 > 70 ? v3 - 87 : v3 - 55;
       return v1 & v3;
     }
@@ -111,7 +111,9 @@ class ExtdFunc {
     const s = conv(start);
     const e = conv(end);
     if (!s && !e) return defaultAccess;
-    end || (end = 999999999999999);
+    // NOTE: the Perl reference defaults an empty `end` to the end of time
+    // before comparing. Here `e` is already derived from `end` above, so that
+    // default was dead code; dropped rather than changing behaviour.
     const d = this.date();
     return d >= s && d <= e;
   }
