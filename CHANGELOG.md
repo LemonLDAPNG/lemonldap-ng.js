@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.5
+
+- Fix npm audit vulnerabilities and update dependencies
+- conf-yaml: upgrade js-yaml from 4.x to 5.x
+- session-sqlite: upgrade sqlite3 from 5.x to 6.x. Its prebuilt binaries are
+  linked against GLIBC 2.38: on older systems (Debian 12, Ubuntu 22.04), install
+  with `npm_config_build_from_source=sqlite3`
+- conf, conf-ldap, conf-rdbi, handler: keep the original error as `cause` when
+  rethrowing
+- safelib: drop dead code in `timeRange()` (no behaviour change)
+- Replace the unmaintained rollup-plugin-cleaner by a local plugin (build only)
+
+Published packages: `@lemonldap-ng/conf`, `@lemonldap-ng/conf-ldap`,
+`@lemonldap-ng/conf-rdbi`, `@lemonldap-ng/conf-yaml`, `@lemonldap-ng/safelib`,
+`@lemonldap-ng/session-sqlite`, `lemonldap-ng-handler`.
+
 ## 0.9.4
 
 - Migrate test framework from Jest to Vitest
