@@ -4,21 +4,19 @@ const YAMLConf = require("../");
 
 const path = require("path");
 const { rimraf } = require("rimraf");
-const mkdirp = require("mkdirp");
+const fs = require("node:fs/promises");
 const dir = path.join(__dirname, "conf");
 
 let yamlConfs;
 
-const clean = () => {
-  rimraf(dir)
-    .then(() => {})
-    .catch(console.error);
-};
+// Must return the promise: beforeAll recreates the directory right after, so
+// a fire-and-forget rimraf can land after the mkdir and wipe it again.
+const clean = () => rimraf(dir);
 
 beforeAll(async () => {
-  clean();
+  await clean();
 
-  await mkdirp(dir);
+  await fs.mkdir(dir, { recursive: true });
   yamlConfs = new YAMLConf({ dirName: dir });
 });
 
