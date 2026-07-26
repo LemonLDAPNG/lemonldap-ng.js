@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@lemonldap-ng/session-dbi": "^0.9.3",
-    "sqlite3": "^5.0.8"
+    "sqlite3": "^6.0.1"
   },
   "bugs": {
     "url": "https://gitlab.ow2.org/lemonldap-ng/lemonldap-ng/issues"
