@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.9.4
+
+- Migrate test framework from Jest to Vitest
+- Fix npm audit vulnerabilities and update dependencies
+  (qs, serialize-javascript, brace-expansion, vite, tar, …)
+
 ## 0.9.3
 
 - Fix npm audit vulnerabilities (tar, lodash overrides)
