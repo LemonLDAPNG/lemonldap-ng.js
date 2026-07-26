@@ -24,7 +24,7 @@
   ],
   "dependencies": {
     "@lemonldap-ng/conf-file": "^0.9.3",
-    "js-yaml": "^4.1.0"
+    "js-yaml": "^5.2.2"
   },
   "bugs": {
     "url": "https://gitlab.ow2.org/lemonldap-ng/lemonldap-ng/issues"

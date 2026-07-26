@@ -58,7 +58,7 @@
     "@types/sha.js": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^8.29.1",
     "@vitest/coverage-v8": "^4.1.8",
-    "eslint": "^9.24.0",
+    "eslint": "^10.8.0",
     "express": "^5.1.0",
     "normalize-url": "^8.0.1",
     "prettier": "^3.5.3",
