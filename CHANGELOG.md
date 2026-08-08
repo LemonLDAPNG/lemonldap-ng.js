@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.6
+
+- Update re2 to 1.26.1
+
 ## 0.9.5
 
 - Fix npm audit vulnerabilities and update dependencies
