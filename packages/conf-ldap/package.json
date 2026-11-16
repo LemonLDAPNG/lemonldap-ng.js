@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LemonLDAPNG/lemonldap-ng.js.git"
+    "url": "git+https://github.com/LemonLDAPNG/lemonldap-ng.js.git"
   },
   "license": "GPL-2.0-or-later",
   "maintainers": [
