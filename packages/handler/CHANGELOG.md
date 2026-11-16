@@ -1,7 +1,12 @@
 # Changelog
 
-## Unreleased
+## 0.10.0
 
+- All packages: ship `.d.mts` declarations and declare per-condition
+  `types` in the `exports` map, so that TypeScript resolves the types of
+  ESM imports under `node16`, `nodenext` and `bundler` module resolution
+  instead of failing with TS7016 (#64)
+- All packages: bump to 0.10.0, internal dependencies now require `^0.10.0`
 - handler: complete the OAuth2 handler port
   (`Lemonldap::NG::Handler::Lib::OAuth2`). A Bearer token now designates an
   access token session, which is followed to the user (or offline) session it

@@ -1,6 +1,6 @@
 {
   "name": "@lemonldap-ng/message-broker-nobroker",
-  "version": "0.9.4",
+  "version": "0.10.0",
   "description": "No-op message broker for LemonLDAP::NG handler (single instance mode)",
   "main": "./lib/index.js",
   "module": "./lib/index.mjs",
@@ -31,8 +31,8 @@
     "*.md"
   ],
   "dependencies": {
-    "@lemonldap-ng/message-broker": "^0.9.3",
-    "@lemonldap-ng/types": "^0.9.3"
+    "@lemonldap-ng/message-broker": "^0.10.0",
+    "@lemonldap-ng/types": "^0.10.0"
   },
   "bugs": {
     "url": "https://gitlab.ow2.org/lemonldap-ng/lemonldap-ng/issues"

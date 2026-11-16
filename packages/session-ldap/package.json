@@ -1,6 +1,6 @@
 {
   "name": "@lemonldap-ng/session-ldap",
-  "version": "0.9.3",
+  "version": "0.10.0",
   "description": "lemonldap-ng class for DBI session access",
   "keywords": [
     "Lemonldap::NG",
