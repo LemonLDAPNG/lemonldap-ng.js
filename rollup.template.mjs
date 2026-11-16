@@ -1,6 +1,7 @@
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import cleaner from "./rollup-cleaner.mjs";
+import dmts from "./rollup-dmts.mjs";
 //import terser from "@rollup/plugin-terser";
 
 function configure(esm, external) {
@@ -26,6 +27,7 @@ function configure(esm, external) {
           typescript({
             exclude: ["**/__tests__", "**/*.test.ts"],
           }),
+          dmts({ dir: "lib" }),
           commonjs(),
         ]
       : [

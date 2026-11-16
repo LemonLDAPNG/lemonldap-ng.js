@@ -2,6 +2,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import cleaner from "../../rollup-cleaner.mjs";
+import dmts from "../../rollup-dmts.mjs";
 
 function configure(esm, external) {
   return {
@@ -39,6 +40,7 @@ function configure(esm, external) {
           typescript({
             exclude: ["**/__tests__", "**/*.test.ts"],
           }),
+          dmts({ dir: "lib" }),
           commonjs(),
         ]
       : [

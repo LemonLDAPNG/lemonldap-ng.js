@@ -3,6 +3,7 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
 import terser from "@rollup/plugin-terser";
 import cleaner from "../../rollup-cleaner.mjs";
+import dmts from "../../rollup-dmts.mjs";
 
 const alwaysExt = [
   "@lemonldap-ng/conf",
@@ -37,7 +38,7 @@ function configure(esm, external) {
     // normalize-url is a pure ES module
     external: esm ? [...alwaysExt, "normalize-url"] : alwaysExt,
     plugins: esm
-      ? commonPlugins
+      ? [typescript(), dmts({ dir: "lib" }), commonjs()]
       : [
           cleaner({ targets: ["./lib"] }),
           ...commonPlugins,
